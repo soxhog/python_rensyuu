@@ -1,5 +1,5 @@
 while 1:
-	print ("\n整数xを入力してください。")
+	print ("\ninput integer x")
 	try:
 		x = int(input("x = "))
 	except ValueError:
@@ -7,8 +7,8 @@ while 1:
 		continue
 	break
 if x < 0:
-	print('xは負の整数です')
+	print('x is negative integer')
 elif x > 0:
-	print('xは正の整数です')
+	print('x is positive integer')
 else:
-	print('xは0です')
+	print('x is 0')
