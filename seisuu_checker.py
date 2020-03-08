@@ -1,5 +1,3 @@
-import sys
-
 while 1:
 	print ("\n整数xを入力してください。")
 	try:
