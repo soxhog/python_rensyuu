@@ -59,7 +59,52 @@
 # print(input_num[i])
 
 # -------------------------------------
-#重複検査
+# #重複検査
+
+# import sys
+# import numpy
+
+# try:
+# 	times = int(input())
+# except:
+# 	print("error\n整数を入力")
+# 	sys.exit()
+# if times < 1 or 200000 < times:
+# 	print("error\nNは1以上、200,000以下です")
+# 	sys.exit()
+# i = 0
+# int_array = []
+# while not i == times:
+# 	try:
+# 		int_array.append(int(input()))
+# 	except:
+# 		print("error\n整数を入力しろハゲ")
+# 		sys.exit()
+# 	if int_array[i] < 1 or times < int_array[i]:
+# 		print(f"error\n1以上{times}以下で入力しろボケ")
+# 		sys.exit()
+# 	i += 1
+
+# i = 0
+# while not i == times:
+# 	k = 0
+# 	while not k == times:
+# 		if i == k:
+# 			k += 1
+# 			continue
+# 		if int_array[i] == int_array[k]:
+# 			y = int_array[i]
+# 			sum1 = numpy.sum(int_array) - y
+# 			sum2 = numpy.sum(numpy.arange(times + 1))
+# 			x = sum2 - sum1
+# 			print(y, x)
+# 			sys.exit()
+# 		k += 1
+# 	i += 1
+# print("Correct")
+
+# -------------------------------------
+# 重複検査ver2
 
 import sys
 import numpy
@@ -67,38 +112,28 @@ import numpy
 try:
 	times = int(input())
 except:
-	print("error\n整数を入力")
+	print("error\n整数")
 	sys.exit()
 if times < 1 or 200000 < times:
-	print("error\nNは1以上、200,000以下です")
+	print("error\n1以上、200,000以下の整数")
 	sys.exit()
-i = 0
-int_array = []
-while not i == times:
-	try:
-		int_array.append(int(input()))
-	except:
-		print("error\n整数を入力しろハゲ")
-		sys.exit()
-	if int_array[i] < 1 or times < int_array[i]:
-		print("error\n1以上{times}以下で入力しろボケ")
-		sys.exit()
-	i += 1
+
+# times分の要素を0で埋める
+lst = list(range(times + 1))
+mapped_lst = list(map(lambda x: 0, lst))
 
 i = 0
+x = numpy.sum(numpy.arange(times + 1))
+y = 0
 while not i == times:
-	k = 0
-	while not k == times:
-		if i == k:
-			k += 1
-			continue
-		if int_array[i] == int_array[k]:
-			y = int_array[i]
-			sum1 = numpy.sum(int_array) - y
-			sum2 = numpy.sum(numpy.arange(times + 1))
-			x = sum2 - sum1
-			print(y, x)
-			sys.exit()
-		k += 1
+	input_num = int(input())
+	mapped_lst[input_num] += 1
+	if mapped_lst[input_num] == 2:
+		y = input_num
+		x += input_num
+	x -= input_num
 	i += 1
-print("Correct")
+if y == 0:
+	print("Correct")
+else:
+	print(y, x)
