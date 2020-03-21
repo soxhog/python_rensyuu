@@ -59,3 +59,46 @@
 # print(input_num[i])
 
 # -------------------------------------
+#重複検査
+
+import sys
+import numpy
+
+try:
+	times = int(input())
+except:
+	print("error\n整数を入力")
+	sys.exit()
+if times < 1 or 200000 < times:
+	print("error\nNは1以上、200,000以下です")
+	sys.exit()
+i = 0
+int_array = []
+while not i == times:
+	try:
+		int_array.append(int(input()))
+	except:
+		print("error\n整数を入力しろハゲ")
+		sys.exit()
+	if int_array[i] < 1 or times < int_array[i]:
+		print("error\n1以上{times}以下で入力しろボケ")
+		sys.exit()
+	i += 1
+
+i = 0
+while not i == times:
+	k = 0
+	while not k == times:
+		if i == k:
+			k += 1
+			continue
+		if int_array[i] == int_array[k]:
+			y = int_array[i]
+			sum1 = numpy.sum(int_array) - y
+			sum2 = numpy.sum(numpy.arange(times + 1))
+			x = sum2 - sum1
+			print(y, x)
+			sys.exit()
+		k += 1
+	i += 1
+print("Correct")
