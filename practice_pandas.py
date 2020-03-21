@@ -50,7 +50,9 @@ df = pandas.DataFrame(data, columns=['A', 'B', 'C', 'D', 'E'])
 # print((df.sum(axis=1) / 5))
 
 
-import matplotlib
-from matplotlib import pyplot
-print(df.plot(figsize=(11, 7), title='Test Plot', legend=True))
-df.show()
+# import matplotlib
+# from matplotlib import pyplot
+# print(df.plot(figsize=(11, 7), title='Test Plot', legend=True))
+# df.show()
+
+print(1993 % 12)
